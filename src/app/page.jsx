@@ -16,7 +16,8 @@ export default function HomePage() {
         )
     }
 
-    const dailyPoints = completedTasks.reduce((acc, task) => acc + task.points, 0)
+    const dailyPointsRaw = completedTasks.reduce((acc, task) => acc + task.points, 0)
+    const dailyPoints = Math.round(dailyPointsRaw * 100) / 100
 
     return (
         <>
