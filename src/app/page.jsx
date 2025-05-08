@@ -35,6 +35,8 @@ export default function HomePage() {
                 <SRPSection title="Black Points" tasks={blackTasks} onToggle={handleToggle} />
             </div>
           </div>
+          <DailySummary totalPoints={totalPoints} />
+
         </div>
       )
     }
