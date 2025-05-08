@@ -7,7 +7,7 @@ export default function Navbar() {
 const pathname = usePathname();
 
 return (
-<nav className="bg-gradient-to-r from-indigo-500 to-blue-700 text-white px-6 py-6 shadow-md">
+<nav className="bg-gradient-to-r from-indigo-500 to-blue-700 text-white px-6 py-7 shadow-md">
     <div className="max-w-4xl mx-auto flex items-center justify-center">
     <div className="flex items-center gap-6 text-md font-medium">
         <NavLink href="/" label="Home" active={pathname === '/'} />
