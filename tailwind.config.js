@@ -13,6 +13,11 @@ module.exports = {
                 'Test-start': '#C8B937',
                 'Test-end': '#C87037'
             },
+
+            backgroundImage: {
+                'srp-section': 'linear-gradient(to right, #C87037 2%, #C8B937 100%)',
+            }
+
         },
     },
     plugins: [],
