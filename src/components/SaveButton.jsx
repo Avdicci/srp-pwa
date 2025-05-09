@@ -13,7 +13,7 @@ export default function SaveButton({ dailyPoints, label = 'Save Today' }) {
             })
         )
 
-        alert(`Saved ${dailyPoints} points for ${today}`)
+        console.log(`Saved ${dailyPoints} points for ${today}`)
     }
 
     return (
