@@ -32,7 +32,7 @@ export default function HistoryPage() {
             <div className="flex justify-center mb-4">
                 <button
                     onClick={toggleDetails}
-                    className="bg-blue- text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition"
+                    className="bg-blue-700 text-white px-4 py-2 rounded shadow hover:bg-indigo-700 transition"
                 >
                     {showDetails ? 'Hide Scrolls of History' : 'Show Scrolls of History'}
                 </button>
