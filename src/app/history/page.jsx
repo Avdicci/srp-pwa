@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import DailySummary from '../../components/DailySummary'
 import HistoryGraph from '../../components/HistoryGraph'
 import DevSeedButton from '../../components/DevSeedButton'
+import ClearHistoryButton from '../../components/ClearHistoryButton'
+
 
 export default function HistoryPage() {
     const [history, setHistory] = useState({})
@@ -27,6 +29,7 @@ export default function HistoryPage() {
 
             <DevSeedButton />
 
+
             {/* Graph */}
             <div className="w-full h-[28rem] bg-white rounded-xl shadow-md mb-6 p-4">
                 <HistoryGraph history={history} />
@@ -41,6 +44,7 @@ export default function HistoryPage() {
                     {showDetails ? 'Hide Scrolls of History' : 'Show Scrolls of History'}
                 </button>
             </div>
+            <ClearHistoryButton />
 
             {/* Points & Date */}
             {showDetails && (
