@@ -27,9 +27,6 @@ export default function HistoryPage() {
 
             <h1 className="text-3xl font-bold mb-6 text-center">History</h1>
 
-            <DevSeedButton />
-
-
             {/* Graph */}
             <div className="w-full h-[28rem] bg-white rounded-xl shadow-md mb-6 p-4">
                 <HistoryGraph history={history} />
@@ -44,7 +41,6 @@ export default function HistoryPage() {
                     {showDetails ? 'Hide Scrolls of History' : 'Show Scrolls of History'}
                 </button>
             </div>
-            <ClearHistoryButton />
 
             {/* Points & Date */}
             {showDetails && (
