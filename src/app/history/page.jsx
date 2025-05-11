@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import DailySummary from '../../components/DailySummary'
+import HistoryGraph from '../../components/HistoryGraph'
+import DevSeedButton from '../../components/DevSeedButton'
 
 export default function HistoryPage() {
     const [history, setHistory] = useState({})
@@ -16,16 +18,18 @@ export default function HistoryPage() {
 
     return (
         <div className="p-6 max-w-4xl mx-auto">
-            {/* Floating Summary + Save */}
+            {/* Floating Summary */}
             <div className="fixed top-5 right-6 z-50">
                 <DailySummary dailyPoints={lastPoints} />
             </div>
 
             <h1 className="text-3xl font-bold mb-6 text-center">History</h1>
 
-            {/* Enlarged Graph Placeholder */}
-            <div className="w-full h-[28rem] bg-gray-100 rounded-xl shadow-md flex items-center justify-center mb-6">
-                <span className="text-gray-500 text-xl">Graph goes here</span>
+            <DevSeedButton />
+
+            {/* Graph */}
+            <div className="w-full h-[28rem] bg-white rounded-xl shadow-md mb-6 p-4">
+                <HistoryGraph history={history} />
             </div>
 
             {/* Toggle Button */}
@@ -38,7 +42,7 @@ export default function HistoryPage() {
                 </button>
             </div>
 
-            {/* Swapped Points & Date */}
+            {/* Points & Date */}
             {showDetails && (
                 <ul className="space-y-2">
                     {Object.entries(history)
