@@ -5,10 +5,20 @@ import DailySummary from '../components/DailySummary'
 import greenTasks from '../data/greenTasks'
 import whiteTasks from '../data/whiteTasks'
 import blackTasks from '../data/blackTasks'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function HomePage() {
     const [completedTasks, setCompletedTasks] = useState([])
+    const [savedPointsToday, setSavedPointsToday] = useState(0)
+
+    // Sync from localStorage on mount
+    useEffect(() => {
+        const today = new Date().toISOString().split('T')[0]
+        const saved = JSON.parse(localStorage.getItem('savedPoints') || '{}')
+        if (saved[today]) {
+            setSavedPointsToday(saved[today])
+        }
+    }, [])
 
     const handleToggle = (task, checked) => {
         setCompletedTasks((prev) =>
@@ -19,11 +29,14 @@ export default function HomePage() {
     const dailyPointsRaw = completedTasks.reduce((acc, task) => acc + task.points, 0)
     const dailyPoints = Math.round(dailyPointsRaw * 100) / 100
 
+    // Choose live calculation OR fallback to saved
+    const displayedPoints = dailyPoints > 0 ? dailyPoints : savedPointsToday
+
     return (
         <>
             {/* Floating Summary + Save */}
             <div className="fixed top-5 right-6 z-50">
-                <DailySummary dailyPoints={dailyPoints} />
+                <DailySummary dailyPoints={displayedPoints} />
             </div>
 
             {/* Main content */}
