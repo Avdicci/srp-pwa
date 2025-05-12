@@ -25,10 +25,22 @@ export default function HistoryGraph({ history }) {
                 label: 'SRP Points',
                 data: dataPoints,
                 fill: true,
-                borderColor: 'rgb(37 99 235)', // Tailwind blue-700
-                backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                tension: 0.3,
-                pointRadius: 3,
+                borderColor: '#FC6B03', // Border similar to HomeGraph
+                borderWidth: 1.5,
+                backgroundColor: (context) => {
+                    const chart = context.chart
+                    const { ctx, chartArea } = chart
+
+                    if (!chartArea) return '#C8B937' // fallback solid color
+
+                    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
+                    gradient.addColorStop(0, '#C8B937') // top
+                    gradient.addColorStop(1, '#FC6B03') // bot
+                    return gradient
+                },
+                pointBackgroundColor: '#FFFFFF',
+                tension: 0.4,
+                pointRadius: 2,
                 pointHoverRadius: 6,
             },
         ],
@@ -37,27 +49,39 @@ export default function HistoryGraph({ history }) {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: {
-            legend: { display: false },
-        },
         scales: {
             y: {
                 beginAtZero: true,
-                ticks: {
-                    stepSize: 10,
-                },
+                ticks: { color: '#888', stepSize: 20 },
+                grid: { color: '#e0d4b4' }
             },
             x: {
-                ticks: {
-                    maxTicksLimit: 7,
-                },
+                ticks: { color: '#888', maxTicksLimit: 7 },
+                grid: { color: '#e0d4b4' }
+            },
+        },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: '#C87037',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+            },
+        },
+        elements: {
+            point: {
+                radius: 4,
+                hoverRadius: 6,
             },
         },
     }
 
     return (
-        <div className="h-full w-full">
-            <Line data={data} options={options} />
+        <div className="mx-2 sm:mx-4 lg:mx-6 h-96 bg-intense-reverse-background-section rounded-xl shadow-md p-4 mb-8">
+            <div className="relative w-full h-full">
+                <Line data={data} options={options} />
+            </div>
         </div>
     )
+
 }
