@@ -13,7 +13,7 @@ export default function Navbar() {
                     <NavLink href="/" label="Home" active={pathname === '/'} />
                     <NavLink href="/history" label="History" active={pathname === '/history'} />
                     {process.env.NODE_ENV === 'development' && (
-                        <NavLink href="/settings" label="Settings" active={pathname === '/settings'} />
+                        <NavLink href="/admin" label="Admin" active={pathname === '/admin'} />
                     )}
                 </div>
             </div>
