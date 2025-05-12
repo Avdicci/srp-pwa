@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import DailySummary from '../../components/DailySummary'
 import HistoryGraph from '../../components/HistoryGraph'
-import DevSeedButton from '../../components/DevSeedButton'
-import ClearHistoryButton from '../../components/ClearHistoryButton'
+import TotalPointsSummary from '../../components/TotalPointsSummary'
+
 
 
 export default function HistoryPage() {
@@ -21,8 +21,9 @@ export default function HistoryPage() {
     return (
         <div className="p-6 max-w-4xl mx-auto">
             {/* Floating Summary */}
-            <div className="fixed top-5 right-6 z-50">
+            <div className="fixed top-5 right-6 z-50 flex-col items-end space-y-3">
                 <DailySummary dailyPoints={lastPoints} />
+                <TotalPointsSummary history={history} />
             </div>
 
             <h1 className="text-3xl font-bold mb-6 text-center">History</h1>
