@@ -2,6 +2,7 @@
 
 import SRPSection from '../components/SRPsection'
 import DailySummary from '../components/DailySummary'
+import HomeGraph from '../components/HomeGraph'
 import greenTasks from '../data/greenTasks'
 import whiteTasks from '../data/whiteTasks'
 import blackTasks from '../data/blackTasks'
@@ -43,7 +44,7 @@ export default function HomePage() {
             <div className="p-4 space-y-6">
                 {/* Chart */}
                 <div className="w-full h-48 bg-gray-100 rounded-xl shadow-md flex items-center justify-center">
-                    <span className="text-gray-500 text-lg">Graph goes here</span>
+                    <HomeGraph />
                 </div>
 
                 {/* Task sections */}
