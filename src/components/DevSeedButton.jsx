@@ -15,7 +15,7 @@ export default function DevSeedButton() {
     }, [])
 
     const handleSeed = () => {
-        seedSRPData(30)
+        seedSRPData(50)
         window.location.reload()
     }
 
@@ -27,7 +27,7 @@ export default function DevSeedButton() {
                 className={`px-4 py-2 rounded shadow transition
             ${hasData ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-700 hover:bg-green-800 text-white'}`}
             >
-                {hasData ? 'Already Seeded' : 'Seed 30 Days of SRP'}
+                {hasData ? 'Already Seeded' : 'Seed Days of SRP'}
             </button>
         </div>
     )
